@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf3;
+  --foreground: #4a3728;
+
+  /* Paleta pastel infantil do Espaço Educa */
+  --color-cream: #fffaf3;
+  --color-babyblue: #eaf7fb;
+  --color-pink: #f9a8c9;
+  --color-pink-dark: #f0709e;
+  --color-blue: #a8dceb;
+  --color-blue-dark: #6fb8ce;
+  --color-yellow: #f5d76e;
+  --color-yellow-dark: #e8bf2f;
+  --color-green: #b8e3c4;
+  --color-green-dark: #86cf9c;
+  --color-purple: #d3bfe8;
+  --color-purple-dark: #b391d9;
+  --color-brown-dark: #4a3728;
+  --color-brown-light: #8a6d5c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-cream: var(--color-cream);
+  --color-babyblue: var(--color-babyblue);
+  --color-pink: var(--color-pink);
+  --color-pink-dark: var(--color-pink-dark);
+  --color-blue: var(--color-blue);
+  --color-blue-dark: var(--color-blue-dark);
+  --color-yellow: var(--color-yellow);
+  --color-yellow-dark: var(--color-yellow-dark);
+  --color-green: var(--color-green);
+  --color-green-dark: var(--color-green-dark);
+  --color-purple: var(--color-purple);
+  --color-purple-dark: var(--color-purple-dark);
+  --color-brown-dark: var(--color-brown-dark);
+  --color-brown-light: var(--color-brown-light);
+
+  --font-heading: var(--font-baloo), ui-rounded, "Segoe UI Rounded", sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+  --font-body: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-spin-slower: spin 70s linear infinite;
+  --animate-blob: blob 18s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-gradient: gradient-shift 6s ease infinite;
+  --animate-wiggle: wiggle 1.2s ease-in-out infinite;
+
+  --shadow-pink: 0 20px 40px -12px rgba(240, 112, 158, 0.35);
+  --shadow-blue: 0 20px 40px -12px rgba(111, 184, 206, 0.35);
+  --shadow-yellow: 0 20px 40px -12px rgba(232, 191, 47, 0.35);
+  --shadow-green: 0 20px 40px -12px rgba(134, 207, 156, 0.35);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
   }
 }
 
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(20px, -30px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.94);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.75;
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes draw-underline {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-brown-dark);
+  font-family: var(--font-body);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(
+    90deg,
+    var(--color-pink-dark),
+    var(--color-yellow-dark),
+    var(--color-green-dark),
+    var(--color-blue-dark),
+    var(--color-purple-dark)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Respeita a preferência do usuário por menos animação em todo o site */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
