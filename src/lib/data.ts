@@ -108,39 +108,12 @@ export type GalleryImage = {
   alt: string;
 };
 
-// [PLACEHOLDER] Fotos ilustrativas do Unsplash — substituir pelas fotos reais do espaço.
-export const galleryImages: GalleryImage[] = [
-  {
-    id: "gal-1",
-    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Crianças estudando juntas em sala acolhedora",
-  },
-  {
-    id: "gal-2",
-    src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Material pedagógico colorido sobre a mesa",
-  },
-  {
-    id: "gal-3",
-    src: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Criança concentrada fazendo atividade escolar",
-  },
-  {
-    id: "gal-4",
-    src: "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Sala de aula lúdica e colorida",
-  },
-  {
-    id: "gal-5",
-    src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Professora auxiliando aluno em atividade",
-  },
-  {
-    id: "gal-6",
-    src: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=1200&q=80",
-    alt: "[Foto ilustrativa] Livros e materiais escolares organizados",
-  },
-];
+// Fotos reais do Espaço Educa (public/foto1.jpeg … foto10.jpeg).
+export const galleryImages: GalleryImage[] = Array.from({ length: 10 }, (_, i) => ({
+  id: `gal-${i + 1}`,
+  src: `/foto${i + 1}.jpeg`,
+  alt: `Foto ${i + 1} do Espaço Educa`,
+}));
 
 export type Testimonial = {
   id: string;

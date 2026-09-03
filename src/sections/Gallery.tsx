@@ -15,12 +15,6 @@ export default function Gallery() {
           <h2 className="mt-1 font-heading text-3xl font-bold text-brown-dark sm:text-4xl">
             Um ambiente pensado para o aprendizado
           </h2>
-          <p className="mt-4 text-base text-brown-light sm:text-lg">
-            Fotos ilustrativas do espaço, das atividades e dos materiais pedagógicos.
-            <span className="block text-xs mt-1 text-brown-light/70">
-              [Imagens meramente ilustrativas — serão substituídas pelas fotos reais do Espaço Educa]
-            </span>
-          </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15} className="mt-14">
