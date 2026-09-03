@@ -10,11 +10,21 @@ export const site = {
 };
 
 export const contact = {
-  whatsappDisplay: "(83) 98738-2105",
+  whatsappDisplay: "(83) 98738-2105 - (83) 98783-5504",
   whatsappNumber: "5583987382105",
   instagramHandle: "@espacoeducaa",
   instagramUrl: "https://instagram.com/espacoeducaa",
   email: "paoladesigner2020@gmail.com",
+};
+
+export const reviews = {
+  // [PLACEHOLDER] Substituir pelos links reais do perfil do Espaço Educa no Google.
+  // viewUrl: link para a ficha do Google com as avaliações.
+  // writeUrl: link direto "Escrever avaliação" (https://search.google.com/local/writereview?placeid=PLACE_ID).
+  viewUrl:
+    "https://www.google.com/maps/search/Espa%C3%A7o+Educa+Jo%C3%A3o+Pessoa",
+  writeUrl:
+    "https://www.google.com/maps/search/Espa%C3%A7o+Educa+Jo%C3%A3o+Pessoa",
 };
 
 export const location = {
@@ -38,6 +48,7 @@ export const navLinks = [
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Galeria", href: "#galeria" },
   { label: "Contato", href: "#contato" },
+  { label: "Avaliações", href: "#avaliacoes" },
   { label: "Localização", href: "#localizacao" },
 ];
 
@@ -45,7 +56,7 @@ export type Service = {
   id: string;
   title: string;
   description: string;
-  icon: "book" | "trending" | "heart-hands" | "family";
+  icon: "book" | "trending" | "heart-hands" | "family" | "school";
   color: "pink" | "blue" | "yellow" | "green";
 };
 
@@ -57,14 +68,6 @@ export const services: Service[] = [
       "Apoio nas disciplinas do currículo escolar, com atenção às dificuldades e necessidades de cada aluno.",
     icon: "book",
     color: "pink",
-  },
-  {
-    id: "acompanhamento-individualizado",
-    title: "Acompanhamento individualizado",
-    description:
-      "Planejamento pedagógico próprio para cada criança, com objetivos, estratégias e acompanhamento da evolução.",
-    icon: "trending",
-    color: "blue",
   },
   {
     id: "acompanhamento-pedagogico",
@@ -82,13 +85,21 @@ export const services: Service[] = [
     icon: "family",
     color: "green",
   },
+  {
+    id: "parceria-com-a-escola",
+    title: "Parceria com a Escola",
+    description:
+      "Diálogo constante com a escola para construir estratégias que favoreçam o desenvolvimento, a aprendizagem e o bem-estar de cada aluno.",
+    icon: "school",
+    color: "blue",
+  },
 ];
 
 // [PLACEHOLDER] Números reais devem ser fornecidos pelo Espaço Educa.
 export const counters = [
-  { id: "anos", label: "[inserir número real] anos de experiência", value: 5, suffix: "+" },
-  { id: "alunos", label: "[inserir número real] alunos atendidos", value: 120, suffix: "+" },
-  { id: "familias", label: "[inserir número real] satisfação das famílias", value: 98, suffix: "%" },
+  { id: "anos", label: "anos de experiência", value: 3, suffix: "+" },
+  { id: "alunos", label: "alunos atendidos", value: 120, suffix: "+" },
+  { id: "familias", label: "satisfação das famílias", value: 98, suffix: "%" },
 ];
 
 export type GalleryImage = {
@@ -134,31 +145,59 @@ export const galleryImages: GalleryImage[] = [
 export type Testimonial = {
   id: string;
   name: string;
-  role: string;
+  date: string;
+  rating: number;
   quote: string;
 };
 
-// [PLACEHOLDER] Depoimentos ilustrativos — substituir por depoimentos reais das famílias.
+// Avaliações reais publicadas no Google.
 export const testimonials: Testimonial[] = [
   {
-    id: "dep-1",
-    name: "[Nome do responsável]",
-    role: "Mãe de aluno do 4º ano",
+    id: "dep-kelly",
+    name: "Kelly Thallys Moraes",
+    date: "7 meses atrás",
+    rating: 5,
     quote:
-      "[Depoimento ilustrativo] Meu filho ganhou muito mais confiança nos estudos depois que começou no Espaço Educa. O acompanhamento é próximo e sentimos que realmente conhecem cada criança.",
+      "Excelente profissional, meu filho e eu, claro, amamos. Parabéns, está cada dia melhor.",
   },
   {
-    id: "dep-2",
-    name: "[Nome do responsável]",
-    role: "Pai de aluna da educação infantil",
+    id: "dep-jean",
+    name: "Jean Marx",
+    date: "um ano atrás",
+    rating: 5,
     quote:
-      "[Depoimento ilustrativo] A comunicação com a família é muito clara. Sempre sabemos como está a rotina escolar e o desenvolvimento da nossa filha.",
+      "Ambiente muito limpo e aconchegante, professora super atenciosa e com métodos de ensino muito eficientes. O desenvolvimento escolar dos nossos filhos melhorou significativamente. Recomendo a todos que precisam melhorar seu desempenho escolar.",
   },
   {
-    id: "dep-3",
-    name: "[Nome do responsável]",
-    role: "Mãe de aluno do 7º ano",
+    id: "dep-marilia",
+    name: "Marília Veloso",
+    date: "um ano atrás",
+    rating: 5,
     quote:
-      "[Depoimento ilustrativo] O planejamento individualizado fez toda a diferença nas notas e, principalmente, na motivação dele para estudar.",
+      "Super organizado, dinâmico e atencioso com as crianças. Usa uma didática atual e fácil para o aprendizado das crianças. Indico demais! 😉",
+  },
+  {
+    id: "dep-wanessa",
+    name: "Wanessa Kerolyn",
+    date: "um ano atrás",
+    rating: 5,
+    quote:
+      "Um local bastante aconchegante e com um método de ensino diferenciado. Tudo feito com muita dedicação e nos mínimos detalhes. Nota mil!!!",
+  },
+  {
+    id: "dep-maria",
+    name: "Maria Eduarda",
+    date: "um ano atrás",
+    rating: 5,
+    quote:
+      "Excelente lugar pra colocar o seu filho, ensino e técnicas bem especiais, adoreii.",
+  },
+  {
+    id: "dep-laryssa",
+    name: "Laryssa Santos",
+    date: "um ano atrás",
+    rating: 5,
+    quote:
+      "É um ambiente feliz, acolhedor e inspirador para as nossas crianças. ❤️",
   },
 ];

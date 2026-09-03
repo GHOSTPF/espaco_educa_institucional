@@ -92,7 +92,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Falar com a gente
+              fale com a gente
             </Button>
             <Button href="#servicos" variant="secondary">
               Conhecer os serviços

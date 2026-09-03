@@ -14,6 +14,18 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 
 const initialState: FormState = { name: "", phone: "", message: "" };
 
+// Número de destino do WhatsApp (formato internacional, sem "+", espaços ou traços).
+const WHATSAPP_NUMBER = "5583986669294";
+
+// Aplica a máscara de celular brasileiro: (99) 99999-9999
+function formatPhone(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) return digits.replace(/^(\d{0,2})/, "($1");
+  if (digits.length <= 6) return digits.replace(/^(\d{2})(\d{0,4})/, "($1) $2");
+  if (digits.length <= 10) return digits.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+  return digits.replace(/^(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+}
+
 function validate(values: FormState): FormErrors {
   const errors: FormErrors = {};
   if (!values.name.trim() || values.name.trim().length < 2) {
@@ -35,7 +47,8 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
   function handleChange(field: keyof FormState, value: string) {
-    setValues((prev) => ({ ...prev, [field]: value }));
+    const nextValue = field === "phone" ? formatPhone(value) : value;
+    setValues((prev) => ({ ...prev, [field]: nextValue }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
@@ -48,12 +61,22 @@ export default function ContactForm() {
     if (Object.keys(validationErrors).length > 0) return;
 
     setStatus("submitting");
-    // [MOCK] Este envio é apenas front-end. Conectar a um backend real
-    // (ex: API route + serviço de e-mail, ou webhook) antes de publicar.
+
+    const text = [
+      "Olá! Vim pelo site do Espaço Educa.",
+      "",
+      `*Nome:* ${values.name.trim()}`,
+      `*Telefone / WhatsApp:* ${values.phone.trim()}`,
+      `*Mensagem:* ${values.message.trim()}`,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
     window.setTimeout(() => {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setStatus("success");
       setValues(initialState);
-    }, 1200);
+    }, 800);
   }
 
   const fieldBase =
@@ -97,6 +120,8 @@ export default function ContactForm() {
         <motion.input
           id="phone"
           type="tel"
+          inputMode="numeric"
+          maxLength={16}
           value={values.phone}
           onChange={(e) => handleChange("phone", e.target.value)}
           placeholder="(83) 90000-0000"
@@ -189,10 +214,6 @@ export default function ContactForm() {
           )}
         </AnimatePresence>
       </motion.button>
-
-      <p className="text-center text-xs text-brown-light/70">
-        [Formulário front-end/mockado — conectar a um backend ou serviço de e-mail antes de publicar]
-      </p>
     </form>
   );
 }

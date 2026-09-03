@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
-import { BookOpen, Heart, TrendingUp, Users } from "lucide-react";
+import { BookOpen, Heart, TrendingUp, Users, School } from "lucide-react";
 import type { Service } from "@/lib/data";
 
 const icons = {
@@ -10,6 +10,7 @@ const icons = {
   trending: TrendingUp,
   "heart-hands": Heart,
   family: Users,
+  school: School,
 };
 
 const colorClasses = {

@@ -13,9 +13,9 @@ export default function About() {
             <h2 className="mt-1 font-heading text-3xl font-bold text-brown-dark sm:text-4xl">
               Acompanhamento próximo, do jeito que cada criança precisa
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-brown-light sm:text-lg">
+            {/* <p className="mt-5 text-base leading-relaxed text-brown-light sm:text-lg">
               {site.description}
-            </p>
+            </p> */}
             <p className="mt-4 text-base leading-relaxed text-brown-light sm:text-lg">
               {site.descriptionExtra}
             </p>
