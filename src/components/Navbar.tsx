@@ -58,7 +58,7 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           {/* [PLACEHOLDER] Substituir "#" pela URL real do portal/login administrativo */}
-          <Button href="https://sistema.reforcoespacoeduca.com.br/" variant="ghost" className="px-5 py-2.5 text-sm">
+          <Button href="https://sistema.reforcoespacoeduca.com.br/login" variant="ghost" className="px-5 py-2.5 text-sm">
             Acessar o sistema
           </Button>
         </div>
@@ -103,7 +103,7 @@ export default function Navbar() {
                 transition={{ delay: 0.05 * navLinks.length, duration: 0.3, ease: "easeOut" }}
                 className="mt-2"
               >
-                <Button href="https://sistema.reforcoespacoeduca.com.br/" variant="primary" className="w-full">
+                <Button href="https://sistema.reforcoespacoeduca.com.br/login" variant="primary" className="w-full">
                   Acessar o sistema
                 </Button>
               </motion.div>
