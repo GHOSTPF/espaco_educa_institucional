@@ -1,9 +1,7 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import InstagramIcon from "@/components/icons/InstagramIcon";
 import Logo from "@/components/Logo";
 import Container from "@/components/ui/Container";
@@ -45,12 +43,12 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   className="text-sm text-brown-light transition-colors hover:text-pink-dark"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -95,7 +93,7 @@ export default function Footer() {
         <Container className="flex flex-col items-center justify-between gap-2 text-center text-xs text-brown-light sm:flex-row sm:text-left">
           <p>© {new Date().getFullYear()} Espaço Educa. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4">
-            <Link href="/politica-de-privacidade" className="hover:text-pink-dark hover:underline">
+            <Link to="/politica-de-privacidade" className="hover:text-pink-dark hover:underline">
               Política de Privacidade
             </Link>
             <p>Feito com carinho para o cuidado de cada criança.</p>

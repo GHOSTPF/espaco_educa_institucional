@@ -1,20 +1,16 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { contact } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: "Política de Privacidade | Espaço Educa",
-  description: "Política de privacidade do site do Espaço Educa.",
-};
-
 export default function PrivacyPolicyPage() {
   return (
     <section className="py-16 sm:py-24">
+      <title>Política de Privacidade | Espaço Educa</title>
+      <meta name="description" content="Política de privacidade do site do Espaço Educa." />
       <Container className="max-w-3xl">
         <Link
-          href="/"
+          to="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-pink-dark hover:underline"
         >
           <ArrowLeft size={16} /> Voltar para o início

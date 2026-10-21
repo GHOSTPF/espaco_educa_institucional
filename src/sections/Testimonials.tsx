@@ -1,5 +1,3 @@
-"use client";
-
 import { Star } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import Carousel from "@/components/Carousel";

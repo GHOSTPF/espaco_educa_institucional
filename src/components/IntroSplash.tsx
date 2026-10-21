@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Logo from "@/components/Logo";

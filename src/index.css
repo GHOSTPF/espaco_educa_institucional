@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  /* Fontes carregadas via Google Fonts no index.html */
+  --font-baloo: "Baloo 2";
+  --font-caveat: "Caveat";
+  --font-quicksand: "Quicksand";
+
   --background: #fffaf3;
   --foreground: #4a3728;
 

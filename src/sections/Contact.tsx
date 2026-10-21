@@ -1,4 +1,4 @@
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import InstagramIcon from "@/components/icons/InstagramIcon";
 import Container from "@/components/ui/Container";

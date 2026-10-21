@@ -1,14 +1,14 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
+
+const MotionLink = motion.create(Link);
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,25 +40,25 @@ export default function Navbar() {
       )}
     >
       <Container className="flex items-center justify-between">
-        <Link href="/" className="shrink-0">
+        <Link to="/" className="shrink-0">
           <Logo />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="font-heading text-sm font-medium text-brown-dark/80 transition-colors hover:text-pink-dark"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden lg:block">
           {/* [PLACEHOLDER] Substituir "#" pela URL real do portal/login administrativo */}
-          <Button href="#" variant="ghost" className="px-5 py-2.5 text-sm">
+          <Button href="https://sistema.reforcoespacoeduca.com.br" variant="ghost" className="px-5 py-2.5 text-sm">
             Acessar o sistema
           </Button>
         </div>
@@ -85,9 +85,9 @@ export default function Navbar() {
           >
             <Container className="flex flex-col gap-1 pb-6 pt-2">
               {navLinks.map((link, i) => (
-                <motion.a
+                <MotionLink
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setOpen(false)}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ export default function Navbar() {
                   className="rounded-xl px-3 py-3 font-heading text-base font-medium text-brown-dark hover:bg-pink/15"
                 >
                   {link.label}
-                </motion.a>
+                </MotionLink>
               ))}
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
@@ -103,7 +103,7 @@ export default function Navbar() {
                 transition={{ delay: 0.05 * navLinks.length, duration: 0.3, ease: "easeOut" }}
                 className="mt-2"
               >
-                <Button href="#" variant="primary" className="w-full">
+                <Button href="https://sistema.reforcoespacoeduca.com.br" variant="primary" className="w-full">
                   Acessar o sistema
                 </Button>
               </motion.div>

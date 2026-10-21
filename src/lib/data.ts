@@ -43,13 +43,13 @@ export function whatsappLink(message?: string) {
 }
 
 export const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Galeria", href: "#galeria" },
-  { label: "Contato", href: "#contato" },
-  { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Localização", href: "#localizacao" },
+  { label: "Sobre", href: "/#sobre" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Depoimentos", href: "/#depoimentos" },
+  { label: "Galeria", href: "/#galeria" },
+  { label: "Contato", href: "/#contato" },
+  { label: "Avaliações", href: "/#avaliacoes" },
+  { label: "Localização", href: "/#localizacao" },
 ];
 
 export type Service = {

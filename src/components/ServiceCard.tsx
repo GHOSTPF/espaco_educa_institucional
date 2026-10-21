@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import { BookOpen, Heart, TrendingUp, Users, School } from "lucide-react";

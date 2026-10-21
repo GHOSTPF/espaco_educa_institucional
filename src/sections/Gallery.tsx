@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import Carousel from "@/components/Carousel";
 import Container from "@/components/ui/Container";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -23,12 +20,11 @@ export default function Gallery() {
             ariaLabel="Galeria de fotos do Espaço Educa"
             renderItem={(image) => (
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
-                <Image
+                <img
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  sizes="(max-width: 640px) 82vw, (max-width: 1024px) 55vw, 38vw"
-                  className="object-cover"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
             )}
